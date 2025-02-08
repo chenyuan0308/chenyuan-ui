@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+/src
+/public
+/examples
+/docs
+.gitignore
+.browserslistrc
+.editorconfig
+.eslintrc.js
+.prettierrc
+*.map
+*.html 
