@@ -1,7 +1,9 @@
 import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from '@vuepress/theme-default'
+import { viteBundler } from '@vuepress/bundler-vite'
 
 export default defineUserConfig({
+  bundler: viteBundler(),
   base: '/chenyuan-ui/',
   lang: 'zh-CN',
   title: 'Chenyuan UI',
