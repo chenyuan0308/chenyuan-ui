@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/logo.png
+heroImage: https://v2.vuepress.vuejs.org/images/hero.png
 heroText: Chenyuan UI
 tagline: 一个基于 Vue 3 的组件库
 actions:
