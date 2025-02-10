@@ -12,7 +12,7 @@ export default defineUserConfig({
     navbar: [
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/' },
-      { text: '组件', link: '/components/input' }
+      { text: '组件', link: '/components/button' }
     ],
     sidebar: {
       '/guide/': [
