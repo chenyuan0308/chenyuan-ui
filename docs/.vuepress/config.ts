@@ -2,6 +2,7 @@ import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from '@vuepress/theme-default'
 
 export default defineUserConfig({
+  base: '/chenyuan-ui/',
   lang: 'zh-CN',
   title: 'Chenyuan UI',
   description: 'Vue 3 组件库',
