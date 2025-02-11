@@ -2,6 +2,8 @@
 
 常用的操作按钮组件。
 
+<AnchorNav />
+
 ## 基础用法
 
 基础的按钮用法。
@@ -16,7 +18,7 @@
 
 按钮不可用状态。
 
-<preview>
+<preview component_name="button-demo">
   <template #default>
     <MyButton disabled>禁用按钮</MyButton>
     <MyButton type="primary" disabled>禁用主要按钮</MyButton>
