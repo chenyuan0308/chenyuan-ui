@@ -14,7 +14,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://gitee.com/chen_yuan_zhang_han/chenyuan-ui"
+    "url": "git+https://github.com/chenyuan0308/chenyuan-ui.git"
+  },
+  "homepage": "https://chenyuan0308.github.io/chenyuan-ui",
+  "bugs": {
+    "url": "https://github.com/chenyuan0308/chenyuan-ui/issues"
   },
   "main": "dist/chenyuan-ui.umd.js",
   "module": "dist/chenyuan-ui.mjs",
