@@ -1,4 +1,10 @@
 <template>
-  <cy-button label="加载中" loading />
-  <cy-button label="加载带图标" loading icon="/path/to/icon.png" />
+  <cy-button label="加载中" loading customerClass="custom-class"/>
 </template>
+
+
+<style lang="scss" scoped>
+.custom-class {
+  width: 100%;
+}
+</style>

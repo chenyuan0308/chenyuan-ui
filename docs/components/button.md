@@ -8,6 +8,16 @@ title: Button 按钮
 
 <AnchorNav />
 
+## 加载状态
+
+点击按钮后进行数据加载操作，在按钮上显示加载状态。
+
+<preview component_name="button/loading">
+  <template #default>
+    <ButtonLoading />
+  </template>
+</preview>
+
 ## 基础用法
 
 基础的按钮用法。默认情况下，按钮没有 hover 效果。
@@ -34,7 +44,7 @@ title: Button 按钮
 
 <preview component_name="button/disabled">
   <template #default>
-   <with-icon />
+  <ButtonDisabled />
   </template>
 </preview>
 
@@ -44,19 +54,7 @@ title: Button 按钮
 
 <preview component_name="button/with-icon">
   <template #default>
-    <cy-button label="带图标按钮" icon="/path/to/icon.png" />
-    <cy-button label="自定义图标" icon="/path/to/custom-icon.png" customerClass="with-large-icon" />
-  </template>
-</preview>
-
-## 加载状态
-
-点击按钮后进行数据加载操作，在按钮上显示加载状态。
-
-<preview component_name="button/loading">
-  <template #default>
-    <cy-button label="加载中" loading />
-    <cy-button label="加载带图标" loading icon="/path/to/icon.png" />
+      <ButtonWithIcon />
   </template>
 </preview>
 
@@ -64,14 +62,14 @@ title: Button 按钮
 
 ### 属性
 
-| 参数         | 说明                  | 类型    | 默认值       |
-| ------------ | --------------------- | ------- | ------------ |
-| label        | 按钮文字              | string  | '默认按钮'   |
-| icon         | 图标路径              | string  | ''           |
-| customerClass| 自定义样式类名        | string  | ''           |
-| disabled     | 是否禁用              | boolean | false        |
-| loading      | 是否加载中            | boolean | false        |
-| hover        | hover 时的背景色      | string  | ''           |
+| 参数          | 说明             | 类型    | 默认值     |
+| ------------- | ---------------- | ------- | ---------- |
+| label         | 按钮文字         | string  | '默认按钮' |
+| icon          | 图标路径         | string  | ''         |
+| customerClass | 自定义样式类名   | string  | ''         |
+| disabled      | 是否禁用         | boolean | false      |
+| loading       | 是否加载中       | boolean | false      |
+| hover         | hover 时的背景色 | string  | ''         |
 
 ### 插槽
 
