@@ -1,24 +1,26 @@
 <template>
-  <div class="btn">
+  <div class="button-list">
     <cy-button label="默认按钮" @click="onclick" />
+    <cy-button label="带hover效果" hover="#e6f7ff" />
+    <cy-button label="自定义样式" customerClass="custom-class" />
   </div>
-  <cy-button label="自定义样式" customerClass="my-custom-class" />
 </template>
 
 <script setup lang="ts">
-  const onclick = () => {
-    console.log('click');
-  }
+const onclick = () => {
+  console.log('click');
+}
 </script>
 
 <style lang="scss" scoped>
-.btn {
-  width: 200px;
+.button-list {
+  display: flex;
+  gap: 40px;
   margin-bottom: 20px;
 }
 
-.my-custom-class {
-  width: 400px;
+.custom-class {
+  width: 200px;
   color: red;
   border: 1px solid red !important;
 }

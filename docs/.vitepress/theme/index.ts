@@ -5,6 +5,7 @@ import 'element-plus/dist/index.css'
 import MyButton from '../../../src/components/MyButton.vue'
 import Preview from '../components/preview.vue'
 import ButtonBasic from '../components/button/basic.vue'
+import ButtonHover from '../components/button/hover.vue'
 import ButtonDisabled from '../components/button/disabled.vue'
 import ButtonWithIcon from '../components/button/with-icon.vue'
 import ButtonLoading from '../components/button/loading.vue'
@@ -18,6 +19,7 @@ export default {
     app.component('cy-button', MyButton)
     app.component('Preview', Preview)
     app.component('ButtonBasic', ButtonBasic)
+    app.component('ButtonHover', ButtonHover)
     app.component('ButtonDisabled', ButtonDisabled)
     app.component('ButtonWithIcon', ButtonWithIcon)
     app.component('ButtonLoading', ButtonLoading)

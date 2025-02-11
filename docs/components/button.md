@@ -10,11 +10,21 @@ title: Button 按钮
 
 ## 基础用法
 
-基础的按钮用法。
+基础的按钮用法。默认情况下，按钮没有 hover 效果。
 
 <preview component_name="button/basic">
   <template #default>
     <ButtonBasic />
+  </template>
+</preview>
+
+## Hover 效果
+
+通过设置 `hover` 属性，可以为按钮添加 hover 效果。支持任何有效的 CSS 颜色值或渐变。
+
+<preview component_name="button/hover">
+  <template #default>
+    <ButtonHover />
   </template>
 </preview>
 
@@ -24,8 +34,7 @@ title: Button 按钮
 
 <preview component_name="button/disabled">
   <template #default>
-    <cy-button label="禁用按钮" disabled />
-    <cy-button label="禁用带图标" disabled icon="/path/to/icon.png" />
+   <with-icon />
   </template>
 </preview>
 
@@ -55,13 +64,14 @@ title: Button 按钮
 
 ### 属性
 
-| 参数         | 说明           | 类型    | 默认值       |
-| ------------ | -------------- | ------- | ------------ |
-| label        | 按钮文字       | string  | '默认按钮'   |
-| icon         | 图标路径       | string  | ''           |
-| customerClass| 自定义样式类名 | string  | ''           |
-| disabled     | 是否禁用       | boolean | false        |
-| loading      | 是否加载中     | boolean | false        |
+| 参数         | 说明                  | 类型    | 默认值       |
+| ------------ | --------------------- | ------- | ------------ |
+| label        | 按钮文字              | string  | '默认按钮'   |
+| icon         | 图标路径              | string  | ''           |
+| customerClass| 自定义样式类名        | string  | ''           |
+| disabled     | 是否禁用              | boolean | false        |
+| loading      | 是否加载中            | boolean | false        |
+| hover        | hover 时的背景色      | string  | ''           |
 
 ### 插槽
 

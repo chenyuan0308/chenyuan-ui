@@ -4,6 +4,54 @@
   --vp-c-brand-lighter: #a0cfff;
   --vp-c-brand-dark: #337ecc;
   --vp-c-brand-darker: #2b69c9;
+  --vp-layout-max-width: 1500px;
+}
+
+/* 调整侧边栏和内容区域 */
+.VPSidebar {
+  padding: 0 !important;
+  width: 280px !important;
+}
+
+/* 调整侧边栏导航居中 */
+.VPSidebar .nav {
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+}
+
+.VPSidebarItem.level-0 {
+  padding: 0 !important;
+}
+
+.VPSidebarItem.level-1 {
+  padding: 0 !important;
+  border-left: none !important;
+}
+
+.VPSidebarItem .text {
+  font-size: 14px !important;
+}
+
+.VPContent {
+  padding-left: 280px !important;
+}
+
+.VPDoc {
+  padding: 32px !important;
+}
+
+.VPNavBar.has-sidebar .content {
+  padding-left: 280px !important;
+}
+
+/* 调整首页布局 */
+.VPHome {
+  padding-left: 0 !important;
+  max-width: 100% !important;
+}
+
+.VPHero {
+  padding: 80px 24px !important;
 }
 
 .demo-block {

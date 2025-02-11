@@ -1,6 +1,6 @@
 <template>
   <el-button v-bind="$attrs" :disabled="disabled" class="common-btn-style"
-    :class="{ [customerClass]: true, ablebtn: !disabled, loading: loading   }">
+    :class="{ [customerClass]: true, ablebtn: !disabled, loading: loading, 'with-hover': hover }">
     <div v-if="icon">
       <el-image :src="icon" />
     </div>
@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { defineProps,  toRefs} from 'vue'
+import { defineProps, toRefs, computed } from 'vue'
 const props = defineProps({
   label: {
     type: String,
@@ -35,6 +35,10 @@ const props = defineProps({
   loading: {
     type: Boolean,
     default: false
+  },
+  hover: {
+    type: String,
+    default: ''
   }
 })
 
@@ -71,9 +75,9 @@ const { label, icon } = toRefs(props)
 .ablebtn {
   border: 1px solid #0E478F;
 
-  &:not(.loading):hover {
-    background: linear-gradient(to right, rgb(0, 240, 255), rgb(100, 149, 237));
-    color: white !important;
+  &.with-hover:not(.loading):hover {
+    background: v-bind('props.hover');
+    color: #0E478F !important;
   }
 }
 
