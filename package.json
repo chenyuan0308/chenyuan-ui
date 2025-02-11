@@ -1,6 +1,6 @@
 {
   "name": "chenyuan-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Vue 3 component library",
   "author": "chenyuan",
@@ -32,7 +32,7 @@
     "preview": "pnpm vite preview",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "publish": "tsx scripts/publish.ts"
+    "release": "tsx scripts/publish.ts"
   },
   "dependencies": {
     "vue": "^3.3.0"
