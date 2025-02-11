@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute, useData } from 'vitepress'
 
 // 导航项类型定义
 interface NavItem {
@@ -14,13 +15,27 @@ const nav_items = ref<NavItem[]>([])
 // 当前激活的导航项
 const active_link = ref('')
 
+// 获取路由和页面数据
+const route = useRoute()
+const { page } = useData()
+
 // 处理点击导航项
 const handle_click = (link: string) => {
-  // 移除开头的 #
-  const target_id = link.slice(1)
+  const target_id = decodeURIComponent(link.slice(1))
   const target_element = document.getElementById(target_id)
   if (target_element) {
-    target_element.scrollIntoView({ behavior: 'smooth' })
+    // 使用原生的滚动行为
+    target_element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    })
+    // 调整偏移量
+    setTimeout(() => {
+      window.scrollBy({
+        top: -100,
+        behavior: 'smooth'
+      })
+    }, 0)
   }
 }
 
@@ -31,10 +46,10 @@ const update_active_nav = () => {
 
   for (let i = nav_links.length - 1; i >= 0; i--) {
     const link = nav_links[i].link
-    const target_id = link.slice(1)
+    const target_id = decodeURIComponent(link.slice(1))
     const element = document.getElementById(target_id)
     
-    if (element && element.offsetTop <= scroll_top + 100) {
+    if (element && element.offsetTop - 100 <= scroll_top) {
       active_link.value = link
       break
     }
@@ -43,24 +58,34 @@ const update_active_nav = () => {
 
 // 初始化导航项
 const init_nav = () => {
-  const headers = Array.from(document.querySelectorAll('h2, h3'))
-  console.log('headers', headers);
-  
-  nav_items.value = headers.map(header => ({
-    title: header.textContent || '',
-    link: `#${header.id}`,
-    level: parseInt(header.tagName[1])
-  }))
+  const headers = page.value.headers
+  if (headers) {
+    nav_items.value = headers
+      .filter(header => header.level === 2 || header.level === 3)
+      .map(header => ({
+        title: header.title,
+        link: `#${header.slug}`,
+        level: header.level
+      }))
+  }
 }
 
 // 监听滚动事件
 onMounted(() => {
   init_nav()
   window.addEventListener('scroll', update_active_nav)
+  // 初始化时检查一次当前位置
+  update_active_nav()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', update_active_nav)
+})
+
+// 监听路由变化
+watch(() => route.path, () => {
+  init_nav()
+  update_active_nav()
 })
 </script>
 
@@ -92,9 +117,10 @@ onUnmounted(() => {
   top: 100px;
   right: 20px;
   width: 200px;
-  background-color: #fff;
-  border-left: 1px solid #ebedf0;
+  background-color: var(--vp-c-bg);
+  border-left: 1px solid var(--vp-c-divider);
   padding: 8px 0;
+  z-index: 10;
 }
 
 .anchor-nav ul {
@@ -111,7 +137,7 @@ onUnmounted(() => {
 .anchor-nav a {
   display: block;
   padding: 8px 24px 8px 16px;
-  color: #455a64;
+  color: var(--vp-c-text-2);
   font-size: 13px;
   line-height: 1.4;
   text-decoration: none;
@@ -119,12 +145,12 @@ onUnmounted(() => {
 }
 
 .anchor-nav a:hover {
-  color: #409eff;
+  color: var(--vp-c-brand);
 }
 
 .anchor-nav .active a {
-  color: #409eff;
-  border-right: 2px solid #409eff;
+  color: var(--vp-c-brand);
+  border-right: 2px solid var(--vp-c-brand);
 }
 
 .anchor-nav .sub-item a {

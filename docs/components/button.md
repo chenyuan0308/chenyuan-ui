@@ -1,3 +1,7 @@
+---
+title: MyButton 按钮
+---
+
 # MyButton 按钮
 
 常用的操作按钮组件。
