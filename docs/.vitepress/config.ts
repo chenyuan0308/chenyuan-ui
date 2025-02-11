@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Chenyuan UI',
   description: 'Vue 3 component library',
+  base: '/chenyuan-ui/',
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
