@@ -1,8 +1,8 @@
 ---
-title: MyButton 按钮
+title: Button 按钮
 ---
 
-# MyButton 按钮
+# Button 按钮
 
 常用的操作按钮组件。
 
@@ -12,9 +12,9 @@ title: MyButton 按钮
 
 基础的按钮用法。
 
-<preview component_name="button-demo">
+<preview component_name="button/basic">
   <template #default>
-    <ButtonDemo />
+    <ButtonBasic />
   </template>
 </preview>
 
@@ -22,20 +22,32 @@ title: MyButton 按钮
 
 按钮不可用状态。
 
-<preview component_name="button-demo">
+<preview component_name="button/disabled">
   <template #default>
-    <MyButton disabled>禁用按钮</MyButton>
-    <MyButton type="primary" disabled>禁用主要按钮</MyButton>
+    <cy-button label="禁用按钮" disabled />
+    <cy-button label="禁用带图标" disabled icon="/path/to/icon.png" />
   </template>
-  <template #code>
+</preview>
 
-```vue
-<template>
-  <MyButton disabled>禁用按钮</MyButton>
-  <MyButton type="primary" disabled>禁用主要按钮</MyButton>
-</template>
-```
+## 图标按钮
 
+带图标的按钮可以更好地表达按钮的含义。
+
+<preview component_name="button/with-icon">
+  <template #default>
+    <cy-button label="带图标按钮" icon="/path/to/icon.png" />
+    <cy-button label="自定义图标" icon="/path/to/custom-icon.png" customerClass="with-large-icon" />
+  </template>
+</preview>
+
+## 加载状态
+
+点击按钮后进行数据加载操作，在按钮上显示加载状态。
+
+<preview component_name="button/loading">
+  <template #default>
+    <cy-button label="加载中" loading />
+    <cy-button label="加载带图标" loading icon="/path/to/icon.png" />
   </template>
 </preview>
 
@@ -43,16 +55,29 @@ title: MyButton 按钮
 
 ### 属性
 
-| 参数     | 说明     | 类型    | 可选值            | 默认值  |
-| -------- | -------- | ------- | ----------------- | ------- |
-| type     | 按钮类型 | string  | default / primary | default |
-| disabled | 是否禁用 | boolean | -                 | false   |
+| 参数         | 说明           | 类型    | 默认值       |
+| ------------ | -------------- | ------- | ------------ |
+| label        | 按钮文字       | string  | '默认按钮'   |
+| icon         | 图标路径       | string  | ''           |
+| customerClass| 自定义样式类名 | string  | ''           |
+| disabled     | 是否禁用       | boolean | false        |
+| loading      | 是否加载中     | boolean | false        |
 
-### 事件
+### 插槽
 
-| 事件名 | 说明           | 参数                |
-| ------ | -------------- | ------------------- |
-| click  | 点击按钮时触发 | (event: MouseEvent) |
+组件使用 Element Plus 的 `el-button` 作为基础，因此支持 Element Plus 按钮组件的所有属性。
+
+### CSS 变量
+
+组件提供了以下 CSS 变量，可以用来自定义样式：
+
+```css
+.common-btn-style {
+  --button-height: 56px;
+  --button-padding: 15px 20px;
+  --button-font-size: 14px;
+}
+```
 
 ### 插槽
 

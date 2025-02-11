@@ -15,7 +15,11 @@ const source_code = ref('')
 // 加载源代码
 const load_source_code = async () => {
   try {
-    const module = await import(`./button-demo.vue?raw`)
+    // 根据 component_name 构建动态导入路径
+    const path = props.component_name.includes('/') 
+      ? `./button/${props.component_name.split('/')[1]}.vue?raw`
+      : `./${props.component_name}.vue?raw`
+    const module = await import(path)
     source_code.value = module.default
   } catch (err) {
     console.error('加载组件源代码失败：', err)
@@ -67,3 +71,60 @@ const handle_code_toggle = () => {
     </div>
   </div>
 </template>
+
+<style lang="scss">
+.demo-block {
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  margin: 20px 0;
+
+  .demo-block__source {
+    padding: 24px;
+    background-color: #fff;
+  }
+
+  .demo-block__meta {
+    background-color: #fafafa;
+    border-top: 1px solid #dcdfe6;
+  }
+
+  .demo-block__actions {
+    padding: 12px 24px;
+    text-align: right;
+  }
+
+  .action-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    margin-left: 8px;
+    color: #666;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #409eff;
+    }
+  }
+
+  .demo-block__code {
+    padding: 24px;
+    background-color: #282c34;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: auto;
+
+    pre {
+      margin: 0;
+      padding: 0;
+    }
+
+    code {
+      color: #abb2bf;
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+  }
+}
+</style>

@@ -1,6 +1,14 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag.startsWith('el-')
+      }
+    }
+  },
   // 启用平滑滚动
   scrollBehavior: (to, from, savedPosition) => {
     if (to.hash) {
