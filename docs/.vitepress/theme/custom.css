@@ -1,0 +1,81 @@
+:root {
+  --vp-c-brand: #409eff;
+  --vp-c-brand-light: #79bbff;
+  --vp-c-brand-lighter: #a0cfff;
+  --vp-c-brand-dark: #337ecc;
+  --vp-c-brand-darker: #2b69c9;
+}
+
+.demo-block {
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  margin: 20px 0;
+  transition: all 0.2s;
+}
+
+.demo-block:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.demo-block__source {
+  padding: 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dcdfe6;
+}
+
+.demo-block__source button {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.demo-block__meta {
+  background-color: #fafafa;
+}
+
+.demo-block__actions {
+  padding: 12px 24px;
+  text-align: right;
+  border-top: 1px solid #eaeefb;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #666;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-left: 8px;
+  transition: color 0.2s;
+}
+
+.action-button:hover {
+  color: var(--vp-c-brand);
+}
+
+.demo-block__code {
+  padding: 24px;
+  border-top: 1px solid #eaeefb;
+  background-color: #1e1e1e;
+  overflow: auto;
+}
+
+.demo-block__code pre {
+  margin: 0;
+}
+
+.demo-block__code code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #abb2bf;
+  display: block;
+  white-space: pre-wrap;
+}
+
+.language-vue {
+  padding: 1em;
+}
