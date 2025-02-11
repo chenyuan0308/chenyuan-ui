@@ -21,12 +21,24 @@ writeFileSync(package_path, JSON.stringify(package_json, null, 2) + '\n')
 
 // 提交更改
 try {
+  // 先构建
+  console.log('\n📦 Building package...')
+  execSync('pnpm build', { stdio: 'inherit' })
+
+  // 更新版本并提交
+  console.log('\n📝 Updating version...')
   execSync('git add package.json', { stdio: 'inherit' })
   execSync(`git commit -m "chore: release v${new_version}"`, { stdio: 'inherit' })
   execSync(`git tag v${new_version}`, { stdio: 'inherit' })
+  
+  // 发布到 npm
+  console.log('\n🚀 Publishing to npm...')
+  execSync('pnpm publish --no-git-checks', { stdio: 'inherit' })
+  
+  // 推送到远程仓库
+  console.log('\n📤 Pushing to remote...')
   execSync('git push', { stdio: 'inherit' })
   execSync('git push --tags', { stdio: 'inherit' })
-  execSync('pnpm publish --no-git-checks', { stdio: 'inherit' })
   
   console.log(`\n✨ Successfully published version ${new_version}`)
 } catch (error) {
