@@ -14,6 +14,15 @@ importers:
       element-plus:
         specifier: 2.9.4
         version: 2.9.4(vue@3.5.13(typescript@5.7.3))
+      three:
+        specifier: ^0.160.0
+        version: 0.160.1
+      three-orbit-controls:
+        specifier: ^82.1.0
+        version: 82.1.0
+      three-outlinepass:
+        specifier: ^1.2.0
+        version: 1.2.0
       vue:
         specifier: ^3.3.0
         version: 3.5.13(typescript@5.7.3)
@@ -1228,6 +1237,15 @@ packages:
 
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
+
+  three-orbit-controls@82.1.0:
+    resolution: {integrity: sha512-hIWxGoHqIbeq0S2lA14m9VRzo7SamKKVJ9mKMT/rdh0Qa3nV5Umvhlx4zsHl0Y6jLKVZhjatJfeD/K08Tr/g4A==}
+
+  three-outlinepass@1.2.0:
+    resolution: {integrity: sha512-xCEmmf4IZsixXi5Hl14qULk2D9CMEbPg6ZjGBWr5oAk+6K3ZILBNRKXEEcOcdPvZgRtHz/fw1MUFgxbwPAnVQA==}
+
+  three@0.160.1:
+    resolution: {integrity: sha512-Bgl2wPJypDOZ1stAxwfWAcJ0WQf7QzlptsxkjYiURPz+n5k4RBDLsq+6f9Y75TYxn6aHLcWz+JNmwTOXWrQTBQ==}
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -2508,6 +2526,12 @@ snapshots:
       copy-anything: 3.0.5
 
   tabbable@6.2.0: {}
+
+  three-orbit-controls@82.1.0: {}
+
+  three-outlinepass@1.2.0: {}
+
+  three@0.160.1: {}
 
   to-regex-range@5.0.1:
     dependencies:
