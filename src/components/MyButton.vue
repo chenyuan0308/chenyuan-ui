@@ -1,11 +1,11 @@
 <template>
   <el-button v-bind="$attrs" :disabled="disabled" class="common-btn-style"
     :class="{ [customerClass]: true, ablebtn: !disabled, ['loading-animation']: loading, loading: loading, 'with-hover': hover }"
-    :icon="isLocalImage ? undefined : icon">
-    <div v-if="isLocalImage">
-      <el-image :src="icon" />
+    :icon="icon">
+    <div v-if="src">
+      <el-image :src="src" />
     </div>
-    <div v-if="label" class="label" :class="`${icon ? 'ml-2' : ''}`">{{ label }}</div>
+    <div v-if="label" class="label" :class="`${icon||src ? 'ml-2' : ''}`">{{ label }}</div>
   </el-button>
 </template>
 
@@ -40,20 +40,24 @@ const props = defineProps({
   hover: {
     type: String,
     default: ''
+  },
+  src:{
+    type: String,
+    default: ''
   }
 })
 
-const { label, icon } = toRefs(props)
+const { label, icon, src } = toRefs(props)
 
-// 判断是否为本地图片
-const isLocalImage = computed(() => {
-  if (!icon.value) return false
-  // 如果是字符串且包含文件后缀名，则认为是本地图片
-  if (typeof icon.value === 'string' && /\.(svg|png|jpg|jpeg|gif)$/i.test(icon.value)) {
-    return true
-  }
-  return false
-})
+// // 判断是否为本地图片
+// const isLocalImage = computed(() => {
+//   if (!icon.value) return false
+//   // 如果是字符串且包含文件后缀名，则认为是本地图片
+//   if (typeof icon.value === 'string' && /\.(svg|png|jpg|jpeg|gif)$/i.test(icon.value)) {
+//     return true
+//   }
+//   return false
+// })
 
 </script>
 

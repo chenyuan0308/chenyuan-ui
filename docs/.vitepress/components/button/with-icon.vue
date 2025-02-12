@@ -1,7 +1,7 @@
 <template>
   <cy-button label="带图标按钮" :icon="Delete" />
   <div style="margin-bottom: 20px;"/>
-  <cy-button label="自定义图标" :icon="loop" customerClass="with-large-icon" />
+  <cy-button label="自定义图标" :src="loop" customerClass="with-large-icon" />
 </template>
 <script setup lang="ts">
 import { Delete } from '@element-plus/icons-vue'
