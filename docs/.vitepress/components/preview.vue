@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import MyButton from './button/basic.vue?raw'  // 示例静态导入
 
 // 控制代码展示状态
 const show_code = ref(true)
@@ -16,18 +17,13 @@ const source_code = ref('')
 const load_source_code = async () => {
   try {
     console.log('props.component_name', props.component_name);
-    // 根据 component_name 构建动态导入路径
-    // const path = props.component_name.includes('/') 
-    //   ? `./button/${props.component_name.split('/')[1]}.vue?raw`
-    //   : `./${props.component_name}.vue?raw`
-    const dir_name = props.component_name.split('/')[0]
-    const vue_name = props.component_name.split('/')[1]
-    const path = `./${dir_name}/${vue_name}.vue?raw`
-    console.log('path', path);
-    const module = await import(path)
-    console.log('module', module);
-
-    source_code.value = module.default
+    // 使用静态导入
+    if (props.component_name === 'button/loading') {
+      source_code.value = MyButton
+    } else {
+      console.error('组件未找到：', props.component_name)
+      source_code.value = ''
+    }
   } catch (err) {
     console.error('加载组件源代码失败了：', err)
     source_code.value = ''
