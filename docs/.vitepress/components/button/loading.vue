@@ -1,5 +1,5 @@
 <template>
-  <cy-button label="加载中" loading customerClass="custom-class"/>
+  <CYButton label="加载中" loading customerClass="custom-class"/>
 </template>
 
 

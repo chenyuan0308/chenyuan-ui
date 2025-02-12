@@ -54,7 +54,7 @@ app.mount('#app')
 ### 3. 按需引入
 ```vue
 <template>
-  <cy-button>按钮</cy-button>
+  <CYButton>按钮</CYButton>
 </template>
 
 <script setup lang="ts">
@@ -63,7 +63,7 @@ import 'chenyuan-ui/dist/style.css'
 </script>
 ```
 
-注意：组件导出名称为 `CYButton`，使用时可以通过 `<cy-button>` 或 `<CYButton>` 标签使用。
+注意：组件导出名称为 `CYButton`，使用时可以通过 `<CYButton>` 或 `<CYButton>` 标签使用。
 
 ## 注意事项
 1. 确保在发布前所有代码更改都已提交到 git 仓库

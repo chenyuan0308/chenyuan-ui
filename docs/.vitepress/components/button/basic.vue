@@ -1,8 +1,8 @@
 <template>
   <div class="button-list">
-    <cy-button label="默认按钮" @click="onclick" />
-    <cy-button label="带hover效果" hover="#e6f7ff" />
-    <cy-button label="自定义样式" customerClass="custom-class" />
+    <CYButton label="默认按钮" @click="onclick" />
+    <CYButton label="带hover效果" hover="#e6f7ff" />
+    <CYButton label="自定义样式" customerClass="custom-class" />
   </div>
 </template>
 

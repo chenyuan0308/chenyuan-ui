@@ -16,7 +16,7 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.use(ElementPlus)
-    app.component('cy-button', MyButton)
+    app.component('CYButton', MyButton)
     app.component('Preview', Preview)
     app.component('ButtonBasic', ButtonBasic)
     app.component('ButtonHover', ButtonHover)

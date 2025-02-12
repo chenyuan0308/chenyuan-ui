@@ -15,7 +15,7 @@ export default {
     app.use(ElementPlus)
     
     // 注册自己的组件
-    app.component('cy-button', CYButton)
+    app.component('CYButton', CYButton)
     app.component('cy-input', CYInput)
     // 在这里注册更多组件
   }
