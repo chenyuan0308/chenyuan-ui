@@ -1,7 +1,7 @@
 const n=`<template>
-  <cy-button label="禁用按钮" disabled />
+  <CYButton label="禁用按钮" disabled />
   <div style="margin-bottom: 20px;"/>
-  <!-- <cy-button label="禁用带图标" disabled :icon="loop" /> -->
+  <!-- <CYButton label="禁用带图标" disabled :icon="loop" /> -->
 </template>
 
 <script setup lang="ts">
