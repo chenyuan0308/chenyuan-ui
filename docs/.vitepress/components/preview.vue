@@ -22,7 +22,7 @@ const load_source_code = async () => {
     const module = await import(path)
     source_code.value = module.default
   } catch (err) {
-    console.error('加载组件源代码失败：', err)
+    console.error('加载组件源代码失败了：', err)
     source_code.value = ''
   }
 }
