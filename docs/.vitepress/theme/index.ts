@@ -12,6 +12,8 @@ import ButtonWithIcon from '../components/button/with-icon.vue'
 import ButtonLoading from '../components/button/loading.vue'
 import AnchorNav from '../components/anchor-nav.vue'
 import PointCloudBasic from '../components/pointCloud/basic.vue'
+import PointCloudColor from '../components/pointCloud/differentColor.vue'
+
 import './custom.css'
 
 export default {
@@ -28,5 +30,6 @@ export default {
     app.component('ButtonWithIcon', ButtonWithIcon)
     app.component('ButtonLoading', ButtonLoading)
     app.component('PointCloudBasic', PointCloudBasic)
+    app.component('PointCloudColor', PointCloudColor)
   }
 } satisfies Theme

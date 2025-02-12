@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /components/button
+      link: /components/pointCloud
     - theme: alt
       text: 在 GitHub 上查看
       link: https://github.com/chenyuan0308/chenyuan-ui

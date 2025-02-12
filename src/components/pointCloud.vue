@@ -26,6 +26,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  colorList:{
+    type: Array,
+    default:()=>['#537983','#89caed','#d6d7db','#1463c3']
+  }
 });
 
 const isFullScreen = ref(false)
@@ -252,11 +256,11 @@ const updatePoints = async () => {
 
       let color;
       switch (item[3]) {
-        case 0: color = new THREE.Color("#537983"); break;
-        case 1: color = new THREE.Color("#89caed"); break;
-        case 2: color = new THREE.Color("#d6d7db"); break;
+        case 0: color = new THREE.Color(props.colorList[0]); break;
+        case 1: color = new THREE.Color(props.colorList[1]); break;
+        case 2: color = new THREE.Color(props.colorList[2]); break;
         case 3:
-          color = new THREE.Color("#1463c3");
+          color = new THREE.Color(props.colorList[3]);
           blinkingPoints.push(index);
           break;
         default: color = new THREE.Color(0xffffff);

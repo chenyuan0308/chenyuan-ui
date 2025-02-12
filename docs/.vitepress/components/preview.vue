@@ -1,14 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch, withDefaults, defineProps } from 'vue'
 
 
 // 控制代码展示状态
 const show_code = ref(true)
 
-// 获取组件名称
-const props = defineProps<{
-  component_name: string
-}>()
+
+const props = defineProps({
+  component_name:{
+    type:String,
+    default:''
+  },
+  set_show_code:{
+    type:Boolean,
+    default:true
+  },
+})
+
+watch(() => props.set_show_code, (newVal) => {
+  show_code.value = !!newVal
+},{
+  immediate:true
+})
 
 // 使用 import.meta.glob 批量导入组件
 const components = import.meta.glob('./**/*.vue', { as: 'raw' })

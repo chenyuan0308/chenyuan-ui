@@ -7,15 +7,26 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '组件', link: '/components/button' }
+      { text: '组件', link: '/components/pointCloud' }
     ],
     sidebar: {
       '/components/': [
         {
           text: '组件',
           items: [
-            { text: 'Button 按钮', link: '/components/button' },
-            { text: 'PointCloud 点云', link: '/components/pointCloud' }
+            {
+              text:'3D组件',
+              items: [
+                { text: 'PointCloud 点云', link: '/components/pointCloud' }
+              ]
+            }
+            ,
+            {
+              text:'普通组件',
+              items: [
+                { text: 'Button 按钮', link: '/components/button' },
+              ]
+            }
           ]
         }
       ]

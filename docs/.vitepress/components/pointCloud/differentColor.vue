@@ -1,6 +1,7 @@
 <template>
   <CYPointCloud
     :pointCloudList="points"
+    :colorList="['red','yellow','blue','green']"
   />
 </template>
 
