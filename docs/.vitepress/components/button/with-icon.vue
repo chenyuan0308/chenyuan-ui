@@ -5,15 +5,15 @@
 </template>
 <script setup lang="ts">
 import { Delete } from '@element-plus/icons-vue'
-import loop from '../../../../src/assets/icon/loop.svg'
+import loop from '../../../../src/assets/icon/loop.png'
 
 </script>
 
 <style lang="scss" scoped>
 :deep() {
   img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
 }
 </style>
