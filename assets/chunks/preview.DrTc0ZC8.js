@@ -18,12 +18,10 @@ const source_code = ref('')
 
 // 加载源代码
 const load_source_code = async () => {
-  console.log('components', components);
   try {
     const componentPath = \`./\${props.component_name}.vue\`
     if (components[componentPath]) {
       const module = await components[componentPath]()
-      console.log('module', module);
       source_code.value = module
     } else {
       console.error('组件未找到：', props.component_name)
