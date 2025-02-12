@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import MyButton from './button/basic.vue?raw'  // 示例静态导入
+
 
 // 控制代码展示状态
 const show_code = ref(true)
@@ -10,16 +10,21 @@ const props = defineProps<{
   component_name: string
 }>()
 
+// 使用 import.meta.glob 批量导入组件
+const components = import.meta.glob('./**/*.vue', { as: 'raw' })
+
 // 源代码
 const source_code = ref('')
 
 // 加载源代码
 const load_source_code = async () => {
+  console.log('components', components);
   try {
-    console.log('props.component_name', props.component_name);
-    // 使用静态导入
-    if (props.component_name === 'button/loading') {
-      source_code.value = MyButton
+    const componentPath = `./${props.component_name}.vue`
+    if (components[componentPath]) {
+      const module = await components[componentPath]()
+      console.log('module', module);
+      source_code.value = module
     } else {
       console.error('组件未找到：', props.component_name)
       source_code.value = ''
