@@ -1,7 +1,7 @@
 const n=`<template>
   <CYPointCloud
     :pointCloudList="points"
-    :detectionScreenIsExpanded="false"
+    :colorList="['red','yellow','blue','green']"
   />
 </template>
 
