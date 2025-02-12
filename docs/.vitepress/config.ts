@@ -15,7 +15,8 @@ export default defineConfig({
           text: '组件',
           items: [
             {
-              text:'3D组件',
+              text:'**3D组件**',
+              style: { fontSize: '1.2em' },
               items: [
                 { text: 'PointCloud 点云', link: '/components/pointCloud' }
               ]

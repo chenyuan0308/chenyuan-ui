@@ -13,6 +13,7 @@ import ButtonLoading from '../components/button/loading.vue'
 import AnchorNav from '../components/anchor-nav.vue'
 import PointCloudBasic from '../components/pointCloud/basic.vue'
 import PointCloudColor from '../components/pointCloud/differentColor.vue'
+import PointCloudAnimation from '../components/pointCloud/animation.vue'
 
 import './custom.css'
 
@@ -31,5 +32,6 @@ export default {
     app.component('ButtonLoading', ButtonLoading)
     app.component('PointCloudBasic', PointCloudBasic)
     app.component('PointCloudColor', PointCloudColor)
+    app.component('PointCloudAnimation', PointCloudAnimation)
   }
 } satisfies Theme

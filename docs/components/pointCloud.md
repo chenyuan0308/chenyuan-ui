@@ -8,6 +8,16 @@ title: PointCloud 点云
 
 <AnchorNav />
 
+## 动画和交互
+
+点云的动画和点击交互功能。
+
+<preview component_name="pointCloud/animation" :set_show_code="false">
+  <template #default>
+    <PointCloudAnimation />
+  </template>
+</preview>
+
 ## 基础用法
 
 基础的点云显示功能。
@@ -20,7 +30,7 @@ title: PointCloud 点云
 
 ## 自定义点云颜色
 
-基础的点云显示功能。
+自定义点云的颜色。
 
 <preview component_name="pointCloud/differentColor" :set_show_code="false">
   <template #default>
@@ -28,16 +38,34 @@ title: PointCloud 点云
   </template>
 </preview>
 
+
+
 ## 属性
 
 | 属性名                    | 说明             | 类型    | 默认值 |
 | ------------------------- | ---------------- | ------- | ------ |
 | pointCloudList            | 点云数据列表     | Array   | []     |
 | colorList | 颜色列表 | Array | ['#537983','#89caed','#d6d7db','#1463c3']  |
+| point_size | 点的大小 | Number | 0.005 |
+| enable_animation | 是否启用动画 | Boolean | false |
+| animation_speed | 动画速度 | Number | 0.01 |
 
 ## 事件
 
 组件会自动监听窗口大小变化和容器尺寸变化，并相应地调整渲染视图。
+
+### 点击事件
+
+点击点云中的点时触发。
+
+```typescript
+(point: number[], index: number) => void
+```
+
+| 参数 | 说明 | 类型 |
+| --- | --- | --- |
+| point | 被点击的点的坐标和颜色信息 | number[] |
+| index | 被点击的点在点云数据中的索引 | number |
 
 ## 示例
 

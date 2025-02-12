@@ -29,8 +29,22 @@ const props = defineProps({
   colorList:{
     type: Array,
     default:()=>['#537983','#89caed','#d6d7db','#1463c3']
+  },
+  point_size: {
+    type: Number,
+    default: 0.005
+  },
+  enable_animation: {
+    type: Boolean,
+    default: false
+  },
+  animation_speed: {
+    type: Number,
+    default: 0.01
   }
 });
+
+const emit = defineEmits(['point_click']);
 
 const isFullScreen = ref(false)
 
@@ -132,6 +146,12 @@ const initScene = async () => {
     if (!isInitialized || !renderer || !scene || !camera || !controls) return;
     animationFrameId = requestAnimationFrame(animate);
     controls.update();
+    
+    // 如果启用动画，旋转点云
+    if (props.enable_animation && points) {
+      points.rotation.y += props.animation_speed;
+    }
+    
     renderer.render(scene, camera);
   };
 
@@ -242,6 +262,7 @@ const updatePoints = async () => {
   const geometry = new THREE.BufferGeometry();
   const positions = [];
   const colors = [];
+  const sizes = [];
   const translateY = 0.0;
 
   try {
@@ -253,6 +274,7 @@ const updatePoints = async () => {
       }
 
       positions.push(item[0], item[1] + translateY, item[2]);
+      sizes.push(props.point_size);
 
       let color;
       switch (item[3]) {
@@ -275,9 +297,10 @@ const updatePoints = async () => {
 
     geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
     geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+    geometry.setAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
 
     const material = new THREE.PointsMaterial({
-      size: 0.005,
+      size: props.point_size,
       vertexColors: true,
       map: (() => {
         const canvas = document.createElement('canvas');
@@ -292,10 +315,40 @@ const updatePoints = async () => {
         return texture;
       })(),
       transparent: true,
-      alphaTest: 0.1
+      alphaTest: 0.1,
+      sizeAttenuation: true
     });
 
     points = new THREE.Points(geometry, material);
+    
+    // 添加点击事件处理
+    const handlePointClick = (event) => {
+      event.preventDefault();
+      const mouse = new THREE.Vector2();
+      const raycaster = new THREE.Raycaster();
+      
+      // 计算鼠标位置
+      const rect = renderer.domElement.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      
+      // 设置射线
+      raycaster.setFromCamera(mouse, camera);
+      
+      // 检测点击的点
+      const intersects = raycaster.intersectObject(points);
+      if (intersects.length > 0) {
+        const index = intersects[0].index;
+        const point = props.pointCloudList[index];
+        emit('point_click', point, index);
+      }
+    };
+
+    // 移除旧的事件监听器
+    renderer.domElement.removeEventListener('click', handlePointClick);
+    // 添加新的事件监听器
+    renderer.domElement.addEventListener('click', handlePointClick);
+
     scene.add(points);
 
     // 调整相机位置
