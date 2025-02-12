@@ -15,11 +15,18 @@ const source_code = ref('')
 // 加载源代码
 const load_source_code = async () => {
   try {
+    console.log('props.component_name', props.component_name);
     // 根据 component_name 构建动态导入路径
-    const path = props.component_name.includes('/') 
-      ? `./button/${props.component_name.split('/')[1]}.vue?raw`
-      : `./${props.component_name}.vue?raw`
+    // const path = props.component_name.includes('/') 
+    //   ? `./button/${props.component_name.split('/')[1]}.vue?raw`
+    //   : `./${props.component_name}.vue?raw`
+    const dir_name = props.component_name.split('/')[0]
+    const vue_name = props.component_name.split('/')[1]
+    const path = `./${dir_name}/${vue_name}.vue?raw`
+    console.log('path', path);
     const module = await import(path)
+    console.log('module', module);
+
     source_code.value = module.default
   } catch (err) {
     console.error('加载组件源代码失败了：', err)
@@ -55,8 +62,12 @@ const handle_code_toggle = () => {
       <div class="demo-block__actions">
         <button class="action-button" @click="handle_copy" title="复制代码">
           <svg viewBox="0 0 1024 1024" width="14" height="14">
-            <path fill="currentColor" d="M768 832a128 128 0 0 1-128 128H192A128 128 0 0 1 64 832V384a128 128 0 0 1 128-128v64a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64h64z"></path>
-            <path fill="currentColor" d="M384 128a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64V192a64 64 0 0 0-64-64H384zm0-64h448a128 128 0 0 1 128 128v448a128 128 0 0 1-128 128H384a128 128 0 0 1-128-128V192A128 128 0 0 1 384 64z"></path>
+            <path fill="currentColor"
+              d="M768 832a128 128 0 0 1-128 128H192A128 128 0 0 1 64 832V384a128 128 0 0 1 128-128v64a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64h64z">
+            </path>
+            <path fill="currentColor"
+              d="M384 128a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64V192a64 64 0 0 0-64-64H384zm0-64h448a128 128 0 0 1 128 128v448a128 128 0 0 1-128 128H384a128 128 0 0 1-128-128V192A128 128 0 0 1 384 64z">
+            </path>
           </svg>
         </button>
         <button class="action-button" @click="handle_code_toggle">
