@@ -14,6 +14,9 @@ importers:
       element-plus:
         specifier: 2.9.4
         version: 2.9.4(vue@3.5.13(typescript@5.7.3))
+      splitpanes:
+        specifier: 3.1.8
+        version: 3.1.8(vue@3.5.13(typescript@5.7.3))
       three:
         specifier: ^0.160.0
         version: 0.160.1
@@ -1223,6 +1226,11 @@ packages:
   speakingurl@14.0.1:
     resolution: {integrity: sha512-1POYv7uv2gXoyGFpBCmpDVSNV74IfsWlDW216UPjbWufNf+bSU6GdbDsxdcxtfwb4xlI3yxzOTKClUosxARYrQ==}
     engines: {node: '>=0.10.0'}
+
+  splitpanes@3.1.8:
+    resolution: {integrity: sha512-iYir0doakV9gYBfCuflGCxCD5Yhh09OGgT+epjfc6LZfTvGDdMXuD0Q4w6jI3hlkdRR1Ta3DlARcV3MOkybymg==}
+    peerDependencies:
+      vue: ^3.2.0
 
   stringify-entities@4.0.4:
     resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
@@ -2501,6 +2509,10 @@ snapshots:
   space-separated-tokens@2.0.2: {}
 
   speakingurl@14.0.1: {}
+
+  splitpanes@3.1.8(vue@3.5.13(typescript@5.7.3)):
+    dependencies:
+      vue: 3.5.13(typescript@5.7.3)
 
   stringify-entities@4.0.4:
     dependencies:

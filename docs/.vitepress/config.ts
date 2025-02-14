@@ -27,6 +27,12 @@ export default defineConfig({
               items: [
                 { text: 'Button 按钮', link: '/components/button' },
               ]
+            },
+            {
+              text:'**布局组件**',
+              items: [
+                { text: 'Splitpanes 分割面板', link: '/components/splitpanes' },
+              ]
             }
           ]
         }

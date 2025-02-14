@@ -4,6 +4,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import MyButton from '../../../src/components/MyButton.vue'
 import MyPointCloud from '../../../src/components/pointCloud.vue'
+import CYSplitpanes from '../../../src/components/CYSplitpanes.vue'
+import CYPane from '../../../src/components/CYPane.vue'
 import Preview from '../components/preview.vue'
 import ButtonBasic from '../components/button/basic.vue'
 import ButtonHover from '../components/button/hover.vue'
@@ -15,6 +17,12 @@ import PointCloudBasic from '../components/pointCloud/basic.vue'
 import PointCloudColor from '../components/pointCloud/differentColor.vue'
 import PointCloudAnimation from '../components/pointCloud/animation.vue'
 
+// Splitpanes demos
+import SplitpanesBasic from '../components/splitpanes/basic.vue'
+import SplitpanesHorizontal from '../components/splitpanes/horizontal.vue'
+import SplitpanesNested from '../components/splitpanes/nested.vue'
+import SplitpanesNoPush from '../components/splitpanes/no-push.vue'
+
 import './custom.css'
 
 export default {
@@ -23,6 +31,8 @@ export default {
     app.use(ElementPlus)
     app.component('CYButton', MyButton)
     app.component('CYPointCloud', MyPointCloud)
+    app.component('CYSplitpanes', CYSplitpanes)
+    app.component('CYPane', CYPane)
     app.component('Preview', Preview)
     app.component('AnchorNav', AnchorNav)
     app.component('ButtonBasic', ButtonBasic)
@@ -33,5 +43,11 @@ export default {
     app.component('PointCloudBasic', PointCloudBasic)
     app.component('PointCloudColor', PointCloudColor)
     app.component('PointCloudAnimation', PointCloudAnimation)
+    
+    // Register Splitpanes demos
+    app.component('SplitpanesBasic', SplitpanesBasic)
+    app.component('SplitpanesHorizontal', SplitpanesHorizontal)
+    app.component('SplitpanesNested', SplitpanesNested)
+    app.component('SplitpanesNoPush', SplitpanesNoPush)
   }
 } satisfies Theme
