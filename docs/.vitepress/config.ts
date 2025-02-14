@@ -7,9 +7,19 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: '指南', link: '/guide/installation' },
       { text: '组件', link: '/components/pointCloud' }
     ],
     sidebar: {
+      '/guide/': [
+        {
+          text: '指南',
+          items: [
+            { text: '快速开始', link: '/guide/quick-start' },
+            { text: '安装使用', link: '/guide/installation' },
+          ]
+        }
+      ],
       '/components/': [
         {
           text: '组件',

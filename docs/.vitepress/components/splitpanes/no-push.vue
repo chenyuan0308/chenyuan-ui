@@ -1,5 +1,5 @@
 <template>
-  <CYSplitpanes :push-other-panes="false" class="default-theme" style="height: 400px">
+  <CYSplitpanes :push-other-panes="false" class="splitpanes-demo">
     <CYPane>
       <div class="pane-content">左侧面板</div>
     </CYPane>
@@ -12,8 +12,11 @@
   </CYSplitpanes>
 </template>
 
-
 <style scoped>
+.splitpanes-demo {
+  height: 400px;
+}
+
 .pane-content {
   height: 100%;
   padding: 10px;
