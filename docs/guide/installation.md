@@ -20,23 +20,11 @@ pnpm add chenyuan-ui
 
 ## 引入样式
 
-chenyuan-ui 依赖于 Element Plus 的样式。如果你全局引入组件，需要先引入样式文件：
+chenyuan-ui 已经集成了 Element Plus 的样式，你只需要引入 chenyuan-ui 的样式文件：
 
 ```ts
 // 入口文件中引入
-// Element Plus 样式
-import 'element-plus/dist/index.css'
-// chenyuan-ui 组件样式
 import 'chenyuan-ui/dist/style.css'
-```
-
-如果你使用按需引入，只需要引入相应组件的样式：
-
-```ts
-// 引入 Element Plus 按钮组件的样式
-import 'element-plus/es/components/button/style/css'
-// 引入 chenyuan-ui 的按钮组件样式
-import 'chenyuan-ui/es/components/button/style/css'
 ```
 
 ## 全局注册
@@ -102,9 +90,53 @@ app.component('CYPane', CYPane)
 app.mount('#app')
 ```
 
-### 使用 Element Plus 组件
+## 使用 Element Plus 组件
 
-chenyuan-ui 已经将 Element Plus 的组件导出，你可以直接从 chenyuan-ui 中引入 Element Plus 的组件：
+chenyuan-ui 已经集成了 Element Plus，你可以通过两种方式使用 Element Plus 的组件。
+
+::: warning 注意
+使用 Element Plus 组件时，请注意组件的命名规范：
+1. 短横线命名：`<el-button>`、`<el-input>`
+2. 大驼峰命名：`<ElButton>`、`<ElInput>`
+
+不要使用错误的命名方式，如 `<Elbutton>`、`<Elinput>`
+:::
+
+### 全局注册方式
+
+在入口文件中全局注册：
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import ChenyuanUI from 'chenyuan-ui'
+
+const app = createApp(App)
+app.use(ChenyuanUI)
+
+app.mount('#app')
+```
+
+然后在组件中直接使用：
+
+```vue
+<template>
+  <!-- 使用你的组件 -->
+  <CYButton>按钮</CYButton>
+  
+  <!-- 使用 Element Plus 组件 -->
+  <el-button type="primary">主要按钮</el-button>
+  <el-input v-model="value" />
+</template>
+
+<script setup>
+const value = ref('')
+</script>
+```
+
+### 按需引入方式
+
+你也可以直接从 chenyuan-ui 中按需引入 Element Plus 的组件：
 
 ```vue
 <template>
@@ -119,11 +151,6 @@ chenyuan-ui 已经将 Element Plus 的组件导出，你可以直接从 chenyuan
 <script setup>
 // 从 chenyuan-ui 中引入组件
 import { CYButton, ElButton, ElInput } from 'chenyuan-ui'
-
-// 引入相应的样式
-import 'chenyuan-ui/es/components/button/style/css'
-import 'element-plus/es/components/button/style/css'
-import 'element-plus/es/components/input/style/css'
 
 const value = ref('')
 </script>
