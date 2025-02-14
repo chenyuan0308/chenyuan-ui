@@ -1,16 +1,19 @@
 const n=`<template>
-  <CYSplitpanes horizontal class="default-theme" style="height: 400px">
+  <CYSplitpanes class="splitpanes-demo">
     <CYPane>
-      <div class="pane-content">上方面板</div>
+      <div class="pane-content">左侧面板</div>
     </CYPane>
     <CYPane>
-      <div class="pane-content">下方面板</div>
+      <div class="pane-content">右侧面板</div>
     </CYPane>
   </CYSplitpanes>
 </template>
 
-
 <style scoped>
+.splitpanes-demo {
+  height: 400px;
+}
+
 .pane-content {
   height: 100%;
   padding: 10px;
