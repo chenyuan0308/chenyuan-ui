@@ -9,6 +9,9 @@ hero:
       text: 快速开始
       link: /components/pointCloud
     - theme: alt
+      text: 使用指南
+      link: /guide/installation
+    - theme: alt
       text: 在 GitHub 上查看
       link: https://github.com/chenyuan0308/chenyuan-ui
 

@@ -1,55 +1,55 @@
 {
-  "hash": "85143baa",
+  "hash": "20ac4d28",
   "configHash": "2b8aa842",
-  "lockfileHash": "3bb76eb3",
-  "browserHash": "f2ee1bcb",
+  "lockfileHash": "c7803da0",
+  "browserHash": "004854ea",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.5.13_typescript@5.7.3/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "ba90798d",
+      "fileHash": "54106495",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@7.7.1/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "15431bb4",
+      "fileHash": "42fd3ba2",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@12.5.0_typescript@5.7.3/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "327154c2",
+      "fileHash": "1da13035",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/.pnpm/element-plus@2.9.4_vue@3.5.13_typescript@5.7.3_/node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "d67490d1",
-      "needsInterop": false
-    },
-    "@element-plus/icons-vue": {
-      "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.3.1_vue@3.5.13_typescript@5.7.3_/node_modules/@element-plus/icons-vue/dist/index.js",
-      "file": "@element-plus_icons-vue.js",
-      "fileHash": "e2aa9719",
-      "needsInterop": false
-    },
-    "three": {
-      "src": "../../../../node_modules/.pnpm/three@0.160.1/node_modules/three/build/three.module.js",
-      "file": "three.js",
-      "fileHash": "a3bc88ee",
-      "needsInterop": false
-    },
-    "three/examples/jsm/controls/OrbitControls.js": {
-      "src": "../../../../node_modules/.pnpm/three@0.160.1/node_modules/three/examples/jsm/controls/OrbitControls.js",
-      "file": "three_examples_jsm_controls_OrbitControls__js.js",
-      "fileHash": "404e1351",
+      "fileHash": "7a276600",
       "needsInterop": false
     },
     "splitpanes": {
       "src": "../../../../node_modules/.pnpm/splitpanes@3.1.8_vue@3.5.13_typescript@5.7.3_/node_modules/splitpanes/dist/splitpanes.es.js",
       "file": "splitpanes.js",
-      "fileHash": "dc3f6acf",
+      "fileHash": "8e557f87",
+      "needsInterop": false
+    },
+    "@element-plus/icons-vue": {
+      "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.3.1_vue@3.5.13_typescript@5.7.3_/node_modules/@element-plus/icons-vue/dist/index.js",
+      "file": "@element-plus_icons-vue.js",
+      "fileHash": "aaa40448",
+      "needsInterop": false
+    },
+    "three": {
+      "src": "../../../../node_modules/.pnpm/three@0.160.1/node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "366ede26",
+      "needsInterop": false
+    },
+    "three/examples/jsm/controls/OrbitControls.js": {
+      "src": "../../../../node_modules/.pnpm/three@0.160.1/node_modules/three/examples/jsm/controls/OrbitControls.js",
+      "file": "three_examples_jsm_controls_OrbitControls__js.js",
+      "fileHash": "818eeed3",
       "needsInterop": false
     }
   },

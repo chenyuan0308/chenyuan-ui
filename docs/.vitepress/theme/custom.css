@@ -50,6 +50,19 @@
   max-width: 100% !important;
 }
 
+/* 页脚快速开始链接 */
+.VPDocFooter .pager-link.next:hover {
+  border-color: var(--vp-c-brand);
+}
+
+.VPDocFooter .pager-link.next:hover .title {
+  color: var(--vp-c-brand);
+}
+
+.VPDocFooter .pager-link.next .title {
+  color: var(--vp-c-text-2);
+}
+
 .VPHero {
   padding: 80px 24px !important;
 }

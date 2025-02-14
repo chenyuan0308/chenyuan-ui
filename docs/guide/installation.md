@@ -1,3 +1,10 @@
+---
+prev: false
+next:
+  text: '快速开始'
+  link: '/components/pointCloud'
+---
+
 # 安装使用
 
 ## 安装

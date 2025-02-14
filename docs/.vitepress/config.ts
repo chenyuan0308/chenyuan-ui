@@ -5,6 +5,7 @@ export default defineConfig({
   description: 'Vue 3 component library',
   base: '/chenyuan-ui/',
   themeConfig: {
+
     nav: [
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/installation' },
