@@ -9,9 +9,12 @@ declare module 'vue' {
   export interface GlobalComponents {
     CYPane: typeof import('./src/components/CYPane.vue')['default']
     CYSplitpanes: typeof import('./src/components/CYSplitpanes.vue')['default']
+    CYSteps: typeof import('./src/components/CYSteps.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
+    ElStep: typeof import('element-plus/es')['ElStep']
+    ElSteps: typeof import('element-plus/es')['ElSteps']
     MyButton: typeof import('./src/components/MyButton.vue')['default']
     MyInput: typeof import('./src/components/MyInput.vue')['default']
     PointCloud: typeof import('./src/components/pointCloud.vue')['default']

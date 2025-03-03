@@ -6,6 +6,10 @@ import MyButton from '../../../src/components/MyButton.vue'
 import MyPointCloud from '../../../src/components/pointCloud.vue'
 import CYSplitpanes from '../../../src/components/CYSplitpanes.vue'
 import CYPane from '../../../src/components/CYPane.vue'
+import CYSteps from '../../../src/components/CYSteps.vue'
+import StepsBasic from '../components/steps/StepsBasic.vue'
+import StepsVertical from '../components/steps/StepsVertical.vue'
+
 import Preview from '../components/preview.vue'
 import ButtonBasic from '../components/button/basic.vue'
 import ButtonHover from '../components/button/hover.vue'
@@ -32,6 +36,7 @@ export default {
     app.component('CYButton', MyButton)
     app.component('CYPointCloud', MyPointCloud)
     app.component('CYSplitpanes', CYSplitpanes)
+
     app.component('CYPane', CYPane)
     app.component('Preview', Preview)
     app.component('AnchorNav', AnchorNav)
@@ -49,5 +54,9 @@ export default {
     app.component('SplitpanesHorizontal', SplitpanesHorizontal)
     app.component('SplitpanesNested', SplitpanesNested)
     app.component('SplitpanesNoPush', SplitpanesNoPush)
+    //Register CYSteps demos
+    app.component('CYSteps', CYSteps)
+    app.component('StepsBasic', StepsBasic)
+    app.component('StepsVertical', StepsVertical)
   }
 } satisfies Theme

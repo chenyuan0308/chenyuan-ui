@@ -37,6 +37,7 @@ export default defineConfig({
               text:'**普通组件**',
               items: [
                 { text: 'Button 按钮', link: '/components/button' },
+                { text: 'Steps 步骤条', link: '/components/steps' },
               ]
             },
             {
