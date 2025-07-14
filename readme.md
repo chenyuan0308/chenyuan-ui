@@ -66,40 +66,4 @@ app.component('CYEllipsis', CYEllipsis)
 app.mount('#app')
 ```
 
-注意：组件导出名称为 `CYButton`，使用时可以通过 `<CYButton>` 或 `<CYButton>` 标签使用。
-
-## 注意事项
-1. 确保在发布前所有代码更改都已提交到 git 仓库
-2. 确保版本号未被使用过
-3. 确保已登录到 npm 账号
-4. 确保有发布权限
-
-支持的图标：Edit, Check, Delete, Search, Setting, User, Home, Star, Heart, Like, Share, Download, Upload, Refresh, Close, Plus, Minus, ArrowLeft, ArrowRight, ArrowUp, ArrowDown
-
-### CYEllipsis 文本省略组件
-
-```vue
-<template>
-  <!-- 单行省略 -->
-  <CYEllipsis text="这是一段很长的文本，会被省略显示" />
-  
-  <!-- 多行省略 -->
-  <CYEllipsis 
-    text="这是一段很长的文本，会被省略显示，支持多行省略" 
-    :lines="2" 
-  />
-  
-  <!-- 自定义宽度 -->
-  <div style="width: 200px;">
-    <CYEllipsis text="这是一段很长的文本，会被省略显示" />
-  </div>
-  
-  <!-- 禁用工具提示 -->
-  <CYEllipsis 
-    text="这是一段很长的文本，会被省略显示" 
-    :show-tooltip="false" 
-  />
-</template>
-```
-
-### CYPointCloud 点云组件
+注意：组件导出名称为 `CYButton`，使用时可以通过 `<CYButton>` 标签使用。
