@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Chenyuan UI 组件展示</h1>
-    
+
     <div class="demo-section">
       <h2>Button 按钮</h2>
       <MyButton>默认按钮</MyButton>
@@ -15,14 +15,27 @@
       <MyInput v-model="inputValue2" placeholder="可清空" clearable />
       <MyInput disabled placeholder="禁用状态" />
     </div>
+
+    <div class="demo-section">
+      <h2>IconText 图标文字</h2>
+      <CYIconText el-icon="Edit" text="文字" icon-position="left" />
+      <CYIconText el-icon="Check" text="文字" icon-position="right" />
+    </div>
+    <div class="demo-section">
+      <h2>Eplie</h2>
+      <CYEllipsis
+        text="这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号数时会显示省略号"
+        :lines="2"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const inputValue = ref('')
-const inputValue2 = ref('')
+const inputValue = ref("");
+const inputValue2 = ref("");
 </script>
 
 <style>
@@ -42,4 +55,4 @@ const inputValue2 = ref('')
 .demo-section > * {
   margin: 0 10px 10px 0;
 }
-</style> 
+</style>

@@ -1,5 +1,10 @@
 ---
-title: Button 按钮
+prev: 
+  text: 'PointCloud 点云'
+  link: '/components/pointCloud'
+next: 
+  text: 'Steps 步骤条'
+  link: '/components/steps'
 ---
 
 # Button 按钮

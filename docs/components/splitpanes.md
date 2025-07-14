@@ -1,5 +1,10 @@
 ---
-title: Splitpanes 分割面板
+prev: 
+  text: 'Ellipsis 文本省略'
+  link: '/components/ellipsis'
+next: 
+  text: 'PointCloud 点云'
+  link: '/components/pointCloud'
 ---
 
 # Splitpanes 分割面板

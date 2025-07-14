@@ -1,5 +1,10 @@
 ---
-title: PointCloud 点云
+prev: 
+  text: 'Splitpanes 分割面板'
+  link: '/components/splitpanes'
+next: 
+  text: 'Button 按钮'
+  link: '/components/button'
 ---
 
 # PointCloud 点云

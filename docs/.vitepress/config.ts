@@ -38,6 +38,7 @@ export default defineConfig({
               items: [
                 { text: 'Button 按钮', link: '/components/button' },
                 { text: 'Steps 步骤条', link: '/components/steps' },
+                { text: 'Ellipsis 文本省略', link: '/components/ellipsis' },
               ]
             },
             {

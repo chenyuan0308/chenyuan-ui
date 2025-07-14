@@ -1,5 +1,10 @@
 ---
-title: Steps 步骤条
+prev: 
+  text: 'Button 按钮'
+  link: '/components/button'
+next: 
+  text: 'Ellipsis 文本省略'
+  link: '/components/ellipsis'
 ---
 
 # Steps 步骤条

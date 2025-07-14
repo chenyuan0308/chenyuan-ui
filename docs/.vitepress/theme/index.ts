@@ -7,6 +7,7 @@ import MyPointCloud from '../../../src/components/pointCloud.vue'
 import CYSplitpanes from '../../../src/components/CYSplitpanes.vue'
 import CYPane from '../../../src/components/CYPane.vue'
 import CYSteps from '../../../src/components/CYSteps.vue'
+import CYEllipsis from '../../../src/components/CYEllipsis.vue'
 import StepsBasic from '../components/steps/StepsBasic.vue'
 import StepsVertical from '../components/steps/StepsVertical.vue'
 
@@ -27,6 +28,13 @@ import SplitpanesHorizontal from '../components/splitpanes/horizontal.vue'
 import SplitpanesNested from '../components/splitpanes/nested.vue'
 import SplitpanesNoPush from '../components/splitpanes/no-push.vue'
 
+// Ellipsis demos
+import EllipsisBasic from '../components/ellipsis/basic.vue'
+import EllipsisMultiline from '../components/ellipsis/multiline.vue'
+import EllipsisCustomWidth from '../components/ellipsis/custom-width.vue'
+import EllipsisDisableTooltip from '../components/ellipsis/disable-tooltip.vue'
+import EllipsisSmartTooltip from '../components/ellipsis/smart-tooltip.vue'
+
 import './custom.css'
 
 export default {
@@ -36,8 +44,10 @@ export default {
     app.component('CYButton', MyButton)
     app.component('CYPointCloud', MyPointCloud)
     app.component('CYSplitpanes', CYSplitpanes)
-
     app.component('CYPane', CYPane)
+    app.component('CYSteps', CYSteps)
+    app.component('CYEllipsis', CYEllipsis)
+
     app.component('Preview', Preview)
     app.component('AnchorNav', AnchorNav)
     app.component('ButtonBasic', ButtonBasic)
@@ -54,9 +64,16 @@ export default {
     app.component('SplitpanesHorizontal', SplitpanesHorizontal)
     app.component('SplitpanesNested', SplitpanesNested)
     app.component('SplitpanesNoPush', SplitpanesNoPush)
-    //Register CYSteps demos
-    app.component('CYSteps', CYSteps)
+    
+    // Register CYSteps demos
     app.component('StepsBasic', StepsBasic)
     app.component('StepsVertical', StepsVertical)
+    
+    // Register Ellipsis demos
+    app.component('EllipsisBasic', EllipsisBasic)
+    app.component('EllipsisMultiline', EllipsisMultiline)
+    app.component('EllipsisCustomWidth', EllipsisCustomWidth)
+    app.component('EllipsisDisableTooltip', EllipsisDisableTooltip)
+    app.component('EllipsisSmartTooltip', EllipsisSmartTooltip)
   }
 } satisfies Theme
