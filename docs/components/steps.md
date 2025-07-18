@@ -3,8 +3,8 @@ prev:
   text: 'Button 按钮'
   link: '/components/button'
 next: 
-  text: 'Ellipsis 文本省略'
-  link: '/components/ellipsis'
+  text: 'PointCloud 点云'
+  link: '/components/pointCloud'
 ---
 
 # Steps 步骤条

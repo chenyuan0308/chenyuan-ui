@@ -17,9 +17,24 @@
     </div>
 
     <div class="demo-section">
-      <h2>IconText 图标文字</h2>
-      <CYIconText el-icon="Edit" text="文字" icon-position="left" />
-      <CYIconText el-icon="Check" text="文字" icon-position="right" />
+      <h2>Card 卡片</h2>
+      <div style="width: 200px; height: 200px">
+        <CYCard >
+          <template #header>
+            <div class="card-header">
+              <h3>标题</h3>
+            </div>
+          </template>
+          <div class="card-body">
+            <p>内容</p>
+          </div>
+          <template #footer>
+            <div class="card-footer">
+              <p>底部内容</p>
+            </div>
+          </template>
+        </CYCard>
+      </div>
     </div>
     <div class="demo-section">
       <h2>Eplie</h2>

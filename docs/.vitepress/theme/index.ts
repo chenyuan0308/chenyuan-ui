@@ -8,6 +8,7 @@ import CYSplitpanes from '../../../src/components/CYSplitpanes.vue'
 import CYPane from '../../../src/components/CYPane.vue'
 import CYSteps from '../../../src/components/CYSteps.vue'
 import CYEllipsis from '../../../src/components/CYEllipsis.vue'
+import CYCard from '../../../src/components/CYCard.vue'
 import StepsBasic from '../components/steps/StepsBasic.vue'
 import StepsVertical from '../components/steps/StepsVertical.vue'
 
@@ -35,6 +36,17 @@ import EllipsisCustomWidth from '../components/ellipsis/custom-width.vue'
 import EllipsisDisableTooltip from '../components/ellipsis/disable-tooltip.vue'
 import EllipsisSmartTooltip from '../components/ellipsis/smart-tooltip.vue'
 
+// Card demos
+import CardBasic from '../components/card/basic.vue'
+import Card3dEnabled from '../components/card/3d-enabled.vue'
+import CardCustomAngle from '../components/card/custom-angle.vue'
+import Card3dDisabled from '../components/card/3d-disabled.vue'
+import CardRippleEnabled from '../components/card/ripple-enabled.vue'
+import CardRippleDisabled from '../components/card/ripple-disabled.vue'
+import CardWithShadow from '../components/card/with-shadow.vue'
+import CardNoBorder from '../components/card/no-border.vue'
+import CardCombined from '../components/card/combined.vue'
+
 import './custom.css'
 
 export default {
@@ -47,6 +59,7 @@ export default {
     app.component('CYPane', CYPane)
     app.component('CYSteps', CYSteps)
     app.component('CYEllipsis', CYEllipsis)
+    app.component('CYCard', CYCard)
 
     app.component('Preview', Preview)
     app.component('AnchorNav', AnchorNav)
@@ -75,5 +88,16 @@ export default {
     app.component('EllipsisCustomWidth', EllipsisCustomWidth)
     app.component('EllipsisDisableTooltip', EllipsisDisableTooltip)
     app.component('EllipsisSmartTooltip', EllipsisSmartTooltip)
+    
+    // Register Card demos
+    app.component('CardBasic', CardBasic)
+    app.component('Card3dEnabled', Card3dEnabled)
+    app.component('CardCustomAngle', CardCustomAngle)
+    app.component('Card3dDisabled', Card3dDisabled)
+    app.component('CardRippleEnabled', CardRippleEnabled)
+    app.component('CardRippleDisabled', CardRippleDisabled)
+    app.component('CardWithShadow', CardWithShadow)
+    app.component('CardNoBorder', CardNoBorder)
+    app.component('CardCombined', CardCombined)
   }
 } satisfies Theme

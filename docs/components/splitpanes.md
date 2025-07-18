@@ -1,7 +1,7 @@
 ---
 prev: 
-  text: 'Ellipsis 文本省略'
-  link: '/components/ellipsis'
+  text: 'Card 卡片'
+  link: '/components/card'
 next: 
   text: 'PointCloud 点云'
   link: '/components/pointCloud'

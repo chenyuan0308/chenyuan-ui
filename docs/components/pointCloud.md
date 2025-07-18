@@ -1,10 +1,10 @@
 ---
 prev: 
-  text: 'Splitpanes 分割面板'
-  link: '/components/splitpanes'
+  text: 'Steps 步骤条'
+  link: '/components/steps'
 next: 
-  text: 'Button 按钮'
-  link: '/components/button'
+  text: 'Card 卡片'
+  link: '/components/card'
 ---
 
 # PointCloud 点云

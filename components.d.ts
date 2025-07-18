@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CYCard: typeof import('./src/components/CYCard.vue')['default']
     CYEllipsis: typeof import('./src/components/CYEllipsis.vue')['default']
     CYIconText: typeof import('./src/components/CYIconText.vue')['default']
     CYPane: typeof import('./src/components/CYPane.vue')['default']
@@ -15,6 +16,7 @@ declare module 'vue' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElStep: typeof import('element-plus/es')['ElStep']
     ElSteps: typeof import('element-plus/es')['ElSteps']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']

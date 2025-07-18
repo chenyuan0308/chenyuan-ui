@@ -11,12 +11,13 @@ import CYPane from './components/CYPane.vue'
 import CYSteps from './components/CYSteps.vue'
 import CYIconText from './components/CYIconText.vue'
 import CYEllipsis from './components/CYEllipsis.vue'
+import CYCard from './components/CYCard.vue'
 
 // 移除全局导出，改为按需导出
 // export * from 'element-plus'
 
 // 导出自己的组件
-export { CYButton, CYInput, CYPointCloud, CYSplitpanes, CYPane, CYSteps, CYIconText, CYEllipsis }
+export { CYButton, CYInput, CYPointCloud, CYSplitpanes, CYPane, CYSteps, CYIconText, CYEllipsis, CYCard }
 
 // 导出插件
 export default {
@@ -30,5 +31,6 @@ export default {
     app.component('CYSteps', CYSteps)
     app.component('CYIconText', CYIconText)
     app.component('CYEllipsis', CYEllipsis)
+    app.component('CYCard', CYCard)
   }
 } 

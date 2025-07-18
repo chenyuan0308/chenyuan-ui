@@ -1,7 +1,7 @@
 ---
 prev: 
-  text: 'PointCloud 点云'
-  link: '/components/pointCloud'
+  text: 'Card 卡片'
+  link: '/components/card'
 next: 
   text: 'Steps 步骤条'
   link: '/components/steps'
