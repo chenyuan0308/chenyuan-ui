@@ -15,6 +15,7 @@
           overflow: 'hidden',
           'text-overflow': 'ellipsis',
           'white-space': lines > 1 ? 'normal' : 'nowrap',
+          '-webkit-box-orient': lines > 1 ? 'vertical' : 'horizontal',
         }"
       >
         {{ text }}
@@ -140,7 +141,6 @@ watch(
 
   // 多行省略
   &__text{
-    -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
 }
