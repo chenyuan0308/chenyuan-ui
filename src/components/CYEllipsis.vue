@@ -5,7 +5,7 @@
     placement="top"
     :show-after="200"
   >
-    <div ref="ellipsisRef" class="cy-ellipsis">
+    <div ref="ellipsisRef" class="cy-ellipsis" :style="maxWidth ? { maxWidth: typeof maxWidth === 'number' ? maxWidth + 'px' : maxWidth } : {}">
       <span
         ref="textRef"
         class="cy-ellipsis__text"
@@ -109,6 +109,16 @@ watch(
     });
   }
 );
+
+// 监听 maxWidth 变化
+watch(
+  () => props.maxWidth,
+  () => {
+    nextTick(() => {
+      checkEllipsis();
+    });
+  }
+);
 </script>
 
 <style lang="scss" scoped>
@@ -129,7 +139,7 @@ watch(
   }
 
   // 多行省略
-  &__text[style*="-webkit-box"] {
+  &__text{
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
