@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CYCard: typeof import('./src/components/CYCard.vue')['default']
+    CYDraggable: typeof import('./src/components/CYDraggable.vue')['default']
     CYEllipsis: typeof import('./src/components/CYEllipsis.vue')['default']
     CYIconText: typeof import('./src/components/CYIconText.vue')['default']
     CYPane: typeof import('./src/components/CYPane.vue')['default']

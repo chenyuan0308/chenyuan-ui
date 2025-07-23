@@ -12,6 +12,7 @@ import CYSteps from './components/CYSteps.vue'
 import CYIconText from './components/CYIconText.vue'
 import CYEllipsis from './components/CYEllipsis.vue'
 import CYCard from './components/CYCard.vue'
+import CYDraggable from './components/CYDraggable.vue';
 
 // 移除全局导出，改为按需导出
 // export * from 'element-plus'
@@ -32,5 +33,6 @@ export default {
     app.component('CYIconText', CYIconText)
     app.component('CYEllipsis', CYEllipsis)
     app.component('CYCard', CYCard)
+    app.component('CYDraggable', CYDraggable);
   }
 } 

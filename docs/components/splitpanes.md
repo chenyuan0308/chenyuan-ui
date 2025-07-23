@@ -1,7 +1,7 @@
 ---
 prev: 
-  text: 'Card 卡片'
-  link: '/components/card'
+  text: 'Draggable 可拖拽弹窗'
+  link: '/components/draggable'
 next: 
   text: 'PointCloud 点云'
   link: '/components/pointCloud'

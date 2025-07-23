@@ -9,6 +9,7 @@ import CYPane from '../../../src/components/CYPane.vue'
 import CYSteps from '../../../src/components/CYSteps.vue'
 import CYEllipsis from '../../../src/components/CYEllipsis.vue'
 import CYCard from '../../../src/components/CYCard.vue'
+import CYDraggable from '../../../src/components/CYDraggable.vue'
 import StepsBasic from '../components/steps/StepsBasic.vue'
 import StepsVertical from '../components/steps/StepsVertical.vue'
 
@@ -47,6 +48,15 @@ import CardWithShadow from '../components/card/with-shadow.vue'
 import CardNoBorder from '../components/card/no-border.vue'
 import CardCombined from '../components/card/combined.vue'
 
+// Draggable demos
+import DraggableBasic from '../components/draggable/basic.vue'
+import DraggableCustomPosition from '../components/draggable/custom-position.vue'
+import DraggableCustomSize from '../components/draggable/custom-size.vue'
+import DraggableNoMask from '../components/draggable/no-mask.vue'
+import DraggableCloseOnMask from '../components/draggable/close-on-mask.vue'
+import DraggableCustomHeader from '../components/draggable/custom-header.vue'
+import DraggableEvents from '../components/draggable/events.vue'
+
 import './custom.css'
 
 export default {
@@ -60,6 +70,7 @@ export default {
     app.component('CYSteps', CYSteps)
     app.component('CYEllipsis', CYEllipsis)
     app.component('CYCard', CYCard)
+    app.component('CYDraggable', CYDraggable)
 
     app.component('Preview', Preview)
     app.component('AnchorNav', AnchorNav)
@@ -99,5 +110,14 @@ export default {
     app.component('CardWithShadow', CardWithShadow)
     app.component('CardNoBorder', CardNoBorder)
     app.component('CardCombined', CardCombined)
+    
+    // Register Draggable demos
+    app.component('DraggableBasic', DraggableBasic)
+    app.component('DraggableCustomPosition', DraggableCustomPosition)
+    app.component('DraggableCustomSize', DraggableCustomSize)
+    app.component('DraggableNoMask', DraggableNoMask)
+    app.component('DraggableCloseOnMask', DraggableCloseOnMask)
+    app.component('DraggableCustomHeader', DraggableCustomHeader)
+    app.component('DraggableEvents', DraggableEvents)
   }
 } satisfies Theme

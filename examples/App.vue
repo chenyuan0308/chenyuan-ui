@@ -39,10 +39,48 @@
     <div class="demo-section">
       <h2>Ellipsis 省略号</h2>
       <CYEllipsis
-        text="这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号数时会显示省略号"
+        text="这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号这是一段很长的文本，会被省略显示，支持多行省略，当文本内容超过指定行数时会显示省略号数时会显示省略号"
         :lines="2"
         :maxWidth="500"
       />
+    </div>
+    <div class="demo-section">
+      <h2>Draggable 拖拽</h2>
+      <button @click="showDraggable = true">打开弹窗（居中）</button>
+      <button @click="showDraggable2 = true">打开弹窗（自定义位置）</button>
+      <CYDraggable
+        v-model="showDraggable"
+        title="可拖动弹窗"
+        :width="400"
+        :height="260"
+        :mask="true"
+        :closeOnClickMask="true"
+        
+      >
+        <template #header>
+          <span style="font-weight: bold;">默认居中弹窗</span>
+        </template>
+        <div>弹窗内容1</div>
+        <div>弹窗内容2</div>
+        <div>弹窗内容3</div>
+      </CYDraggable>
+      
+      <CYDraggable
+        v-model="showDraggable2"
+        title="自定义位置弹窗"
+        :width="350"
+        :height="200"
+        :x="100"
+        :y="100"
+        :mask="true"
+        :closeOnClickMask="true"
+      >
+        <template #header>
+          <span style="font-weight: bold;">自定义位置 (100, 100)</span>
+        </template>
+        <div>自定义位置的弹窗内容</div>
+        <div>位置：x=100, y=100</div>
+      </CYDraggable>
     </div>
   </div>
 </template>
@@ -52,6 +90,8 @@ import { ref } from "vue";
 
 const inputValue = ref("");
 const inputValue2 = ref("");
+const showDraggable = ref(false);
+const showDraggable2 = ref(false);
 </script>
 
 <style>

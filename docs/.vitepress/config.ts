@@ -40,6 +40,7 @@ export default defineConfig({
                 { text: 'Button 按钮', link: '/components/button' },
                 { text: 'Steps 步骤条', link: '/components/steps' },
                 { text: 'Ellipsis 文本省略', link: '/components/ellipsis' },
+                { text: 'Draggable 可拖拽弹窗', link: '/components/draggable' },
               ]
             },
             {

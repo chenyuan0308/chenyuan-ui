@@ -3,8 +3,8 @@ prev:
   text: 'Steps 步骤条'
   link: '/components/steps'
 next: 
-  text: 'Splitpanes 分割面板'
-  link: '/components/splitpanes'
+  text: 'Draggable 可拖拽弹窗'
+  link: '/components/draggable'
 ---
 
 # Ellipsis 文本省略
