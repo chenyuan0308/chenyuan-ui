@@ -18,7 +18,7 @@ import CYDraggable from './components/CYDraggable.vue';
 // export * from 'element-plus'
 
 // 导出自己的组件
-export { CYButton, CYInput, CYPointCloud, CYSplitpanes, CYPane, CYSteps, CYIconText, CYEllipsis, CYCard }
+export { CYButton, CYInput, CYPointCloud, CYSplitpanes, CYPane, CYSteps, CYIconText, CYEllipsis, CYCard, CYDraggable }
 
 // 导出插件
 export default {
