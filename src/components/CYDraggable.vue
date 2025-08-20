@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, useTemplateRef } from "vue";
+import { ref, computed, watch } from "vue";
 import { useDraggable } from "@vueuse/core";
 
 const props = defineProps({
@@ -48,8 +48,8 @@ watch(
 );
 watch(visible, (v) => emit("update:modelValue", v));
 
-const dialogRef = useTemplateRef<HTMLElement | null>("dialogRef");
-const headerRef = useTemplateRef<HTMLElement | null>("headerRef");
+const dialogRef = ref<HTMLElement | null>(null);
+const headerRef = ref<HTMLElement | null>(null);
 
 // 计算初始位置：如果传入了 x、y 则使用，否则居中显示
 const getInitialPosition = () => {
