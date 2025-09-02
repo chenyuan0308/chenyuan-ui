@@ -71,6 +71,17 @@ const { x, y, style } = useDraggable(headerRef, {
   preventDefault: true,
 });
 
+// 监听 x、y 的变化
+watch(
+  () => [props.x, props.y],
+  ([newX, newY]) => {
+    if (newX !== null && newY !== null) {
+      x.value = newX;
+      y.value = newY;
+    }
+  }
+);
+
 const dialogStyle = computed(() => ({
   width: typeof props.width === "number" ? props.width + "px" : props.width,
   height: typeof props.height === "number" ? props.height + "px" : props.height,
