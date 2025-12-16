@@ -7,6 +7,15 @@
       <MyButton>默认按钮</MyButton>
       <MyButton type="primary">主要按钮</MyButton>
       <MyButton disabled>禁用按钮</MyButton>
+      <div style="margin-top: 20px;">
+        <label style="display: flex; align-items: center; margin-bottom: 10px;">
+          <input type="checkbox" v-model="enableGlobalEnter" style="margin-right: 8px;" />
+          开启全局回车监听（无需获得焦点）
+        </label>
+        <MyButton :globalEnter="enableGlobalEnter" type="success">
+          {{ enableGlobalEnter ? '全局回车已启用（按回车试试）' : '全局回车已禁用' }}
+        </MyButton>
+      </div>
     </div>
 
     <div class="demo-section">
@@ -92,6 +101,7 @@ const inputValue = ref("");
 const inputValue2 = ref("");
 const showDraggable = ref(false);
 const showDraggable2 = ref(false);
+const enableGlobalEnter = ref(true); // 控制全局回车监听开关
 </script>
 
 <style>

@@ -1,7 +1,14 @@
 <template>
-  <el-button v-bind="$attrs" :disabled="disabled" class="common-btn-style"
+  <el-button 
+    v-bind="$attrs" 
+    :disabled="disabled" 
+    class="common-btn-style"
     :class="{ [customerClass]: true, ablebtn: !disabled, ['loading-animation']: loading, loading: loading, 'with-hover': hover }"
-    :icon="icon">
+    :icon="icon"
+    @click="handleClick"
+    @keyup.enter="handleEnterKey"
+    @keydown="handleKeyDown"
+    tabindex="0">
     <div v-if="src">
       <el-image :src="src" />
     </div>
@@ -15,7 +22,10 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { defineProps, toRefs, computed } from 'vue'
+import { onMounted, onUnmounted, watch, ref } from 'vue'
+
+const emit = defineEmits(['click'])
+
 const props = defineProps({
   label: {
     type: String,
@@ -44,10 +54,87 @@ const props = defineProps({
   src:{
     type: String,
     default: ''
+  },
+  // 是否全局监听回车键
+  globalEnter: {
+    type: Boolean,
+    default: false
   }
 })
 
-const { label, icon, src } = toRefs(props)
+// 控制全局监听是否激活的内部状态
+const isGlobalListenerActive = ref(false)
+
+// 处理鼠标点击
+const handleClick = (event: MouseEvent) => {
+  if (props.disabled || props.loading) return
+  console.log('按钮点击:', props.label)
+  emit('click', event)
+}
+
+// 处理所有按键事件（用于调试）
+const handleKeyDown = (event: KeyboardEvent) => {
+  console.log('按键按下:', event.key, '按钮:', props.label)
+  if (event.key === 'Enter') {
+    if (props.disabled || props.loading) return
+    console.log('按钮回车触发点击:', props.label)
+    emit('click', event)
+  }
+}
+
+// 处理回车键点击
+const handleEnterKey = (event: KeyboardEvent) => {
+  if (props.disabled || props.loading) return
+  console.log('按钮回车触发点击(keyup):', props.label)
+  emit('click', event)
+}
+
+// 全局回车键监听
+const handleGlobalEnter = (event: KeyboardEvent) => {
+  if (event.key === 'Enter' && !props.disabled && !props.loading) {
+    console.log('全局回车键触发按钮点击:', props.label)
+    emit('click', event)
+  }
+}
+
+// 添加全局监听
+const addGlobalListener = () => {
+  if (!isGlobalListenerActive.value) {
+    window.addEventListener('keydown', handleGlobalEnter)
+    isGlobalListenerActive.value = true
+    console.log('已启用全局回车监听:', props.label)
+  }
+}
+
+// 移除全局监听
+const removeGlobalListener = () => {
+  if (isGlobalListenerActive.value) {
+    window.removeEventListener('keydown', handleGlobalEnter)
+    isGlobalListenerActive.value = false
+    console.log('已移除全局回车监听:', props.label)
+  }
+}
+
+// 在组件挂载时根据 globalEnter 决定是否添加监听
+onMounted(() => {
+  if (props.globalEnter) {
+    addGlobalListener()
+  }
+})
+
+// 监听 globalEnter 的变化，动态添加或移除监听
+watch(() => props.globalEnter, (newValue: boolean) => {
+  if (newValue) {
+    addGlobalListener()
+  } else {
+    removeGlobalListener()
+  }
+})
+
+// 在组件卸载时移除监听
+onUnmounted(() => {
+  removeGlobalListener()
+})
 
 // // 判断是否为本地图片
 // const isLocalImage = computed(() => {
