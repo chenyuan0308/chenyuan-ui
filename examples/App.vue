@@ -19,6 +19,74 @@
     </div>
 
     <div class="demo-section">
+      <h2>权限按钮</h2>
+      <p style="margin-bottom: 12px; color: #666;">permission 传入布尔值控制按钮是否可点击</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <!-- 有权限的按钮 -->
+        <MyButton
+          label="有权限"
+          :permission="true"
+          hover="#e6f0ff"
+        >
+          <template #icon>
+            <el-icon><Plus /></el-icon>
+          </template>
+        </MyButton>
+
+        <!-- 无权限的按钮（会自动禁用 + tooltip 提示） -->
+        <MyButton
+          label="无权限"
+          :permission="false"
+          permissionTip="你没有该操作权限"
+        >
+          <template #icon>
+            <el-icon><Delete /></el-icon>
+          </template>
+        </MyButton>
+
+        <!-- 动态切换权限 -->
+        <MyButton
+          label="动态权限"
+          :permission="hasPerm"
+          hover="#e6f0ff"
+        >
+          <template #icon>
+            <el-icon><Setting /></el-icon>
+          </template>
+        </MyButton>
+      </div>
+
+      <div style="margin-top: 16px;">
+        <label style="display: flex; align-items: center; gap: 6px;">
+          <input type="checkbox" v-model="hasPerm" />
+          切换"动态权限"按钮的权限状态
+        </label>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>图片插槽 (#icon slot)</h2>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <!-- 使用 #icon 插槽自定义图标 -->
+        <MyButton label="搜索" hover="#e6f0ff">
+          <template #icon>
+            <el-icon><Search /></el-icon>
+          </template>
+        </MyButton>
+
+        <!-- 使用 #icon 插槽放自定义图片 -->
+        <MyButton label="带图片按钮" hover="#e6f0ff">
+          <template #icon>
+            <img src="https://element-plus.org/images/element-plus-logo-small.svg" style="width: 20px; height: 20px;" />
+          </template>
+        </MyButton>
+
+        <!-- 兼容旧的 src 方式 -->
+        <MyButton label="src 方式（兼容）" src="https://element-plus.org/images/element-plus-logo-small.svg" hover="#e6f0ff" />
+      </div>
+    </div>
+
+    <div class="demo-section">
       <h2>Input 输入框</h2>
       <MyInput v-model="inputValue" placeholder="请输入内容" />
       <MyInput v-model="inputValue2" placeholder="可清空" clearable />
@@ -96,12 +164,16 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { Plus, Delete, Setting, Search } from "@element-plus/icons-vue";
 
 const inputValue = ref("");
 const inputValue2 = ref("");
 const showDraggable = ref(false);
 const showDraggable2 = ref(false);
 const enableGlobalEnter = ref(true); // 控制全局回车监听开关
+
+// ---- 权限按钮演示 ----
+const hasPerm = ref(false);
 </script>
 
 <style>

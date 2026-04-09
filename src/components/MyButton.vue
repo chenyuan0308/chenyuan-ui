@@ -1,18 +1,43 @@
 <template>
+  <el-tooltip
+    v-if="!hasPermission"
+    :content="permissionTip || '暂无权限'"
+    placement="top">
+    <el-button 
+      v-bind="$attrs" 
+      :disabled="isDisabled" 
+      class="common-btn-style"
+      :class="btnClass"
+      :icon="icon"
+      @click="handleClick"
+      @keyup.enter="handleEnterKey"
+      @keydown="handleKeyDown"
+      tabindex="0">
+      <slot name="icon">
+        <div v-if="src">
+          <el-image :src="src" />
+        </div>
+      </slot>
+      <div v-if="label && !onlyIcon" class="label" :class="`${icon||src||$slots.icon ? 'ml-2' : ''}`">{{ label }}</div>
+    </el-button>
+  </el-tooltip>
   <el-button 
+    v-else
     v-bind="$attrs" 
-    :disabled="disabled" 
+    :disabled="isDisabled" 
     class="common-btn-style"
-    :class="{ [customerClass]: true, ablebtn: !disabled, ['loading-animation']: loading, loading: loading, 'with-hover': hover }"
+    :class="btnClass"
     :icon="icon"
     @click="handleClick"
     @keyup.enter="handleEnterKey"
     @keydown="handleKeyDown"
     tabindex="0">
-    <div v-if="src">
-      <el-image :src="src" />
-    </div>
-    <div v-if="label" class="label" :class="`${icon||src ? 'ml-2' : ''}`">{{ label }}</div>
+    <slot name="icon">
+      <div v-if="src">
+        <el-image :src="src" />
+      </div>
+    </slot>
+    <div v-if="label && !onlyIcon" class="label" :class="`${icon||src||$slots.icon ? 'ml-2' : ''}`">{{ label }}</div>
   </el-button>
 </template>
 
@@ -22,7 +47,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { onMounted, onUnmounted, watch, ref } from 'vue'
+import { onMounted, onUnmounted, watch, ref, computed } from 'vue'
 
 const emit = defineEmits(['click'])
 
@@ -59,15 +84,50 @@ const props = defineProps({
   globalEnter: {
     type: Boolean,
     default: false
+  },
+  // 是否有权限（true 可点击，false 禁用）
+  permission: {
+    type: Boolean,
+    default: true
+  },
+  // 无权限时的提示文案
+  permissionTip: {
+    type: String,
+    default: '暂无权限'
+  },
+  // 纯图标按钮模式，18x18 无边框无内边距
+  onlyIcon: {
+    type: Boolean,
+    default: false
   }
 })
+
+// 权限判断
+const hasPermission = computed(() => {
+  return props.permission
+})
+
+// 综合禁用状态：原始 disabled 或无权限
+const isDisabled = computed(() => {
+  return props.disabled || !hasPermission.value
+})
+
+// 按钮 class
+const btnClass = computed(() => ({
+  [props.customerClass]: true,
+  ablebtn: !isDisabled.value && !props.onlyIcon,
+  'loading-animation': props.loading,
+  loading: props.loading,
+  'with-hover': props.hover,
+  'only-icon': props.onlyIcon
+}))
 
 // 控制全局监听是否激活的内部状态
 const isGlobalListenerActive = ref(false)
 
 // 处理鼠标点击
 const handleClick = (event: MouseEvent) => {
-  if (props.disabled || props.loading) return
+  if (isDisabled.value || props.loading) return
   console.log('按钮点击:', props.label)
   emit('click', event)
 }
@@ -76,7 +136,7 @@ const handleClick = (event: MouseEvent) => {
 const handleKeyDown = (event: KeyboardEvent) => {
   console.log('按键按下:', event.key, '按钮:', props.label)
   if (event.key === 'Enter') {
-    if (props.disabled || props.loading) return
+    if (isDisabled.value || props.loading) return
     console.log('按钮回车触发点击:', props.label)
     emit('click', event)
   }
@@ -84,14 +144,14 @@ const handleKeyDown = (event: KeyboardEvent) => {
 
 // 处理回车键点击
 const handleEnterKey = (event: KeyboardEvent) => {
-  if (props.disabled || props.loading) return
+  if (isDisabled.value || props.loading) return
   console.log('按钮回车触发点击(keyup):', props.label)
   emit('click', event)
 }
 
 // 全局回车键监听
 const handleGlobalEnter = (event: KeyboardEvent) => {
-  if (event.key === 'Enter' && !props.disabled && !props.loading) {
+  if (event.key === 'Enter' && !isDisabled.value && !props.loading) {
     console.log('全局回车键触发按钮点击:', props.label)
     emit('click', event)
   }
@@ -150,15 +210,26 @@ onUnmounted(() => {
 
 <style scoped lang='scss'>
 .common-btn-style {
+  --cy-btn-height: 56px;
+  --cy-btn-padding: 15px 20px;
+  --cy-btn-font-size: 14px;
+  --cy-btn-border-radius: 4px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 56px;
-  padding: 15px 20px;
-  font-size: 14px;
-  border-radius: 4px;
+  height: var(--cy-btn-height);
+  padding: var(--cy-btn-padding);
+  font-size: var(--cy-btn-font-size);
+  border-radius: var(--cy-btn-border-radius);
   transition: all 0.3s ease;
   cursor: pointer;
+
+  &.only-icon {
+    height: 18px;
+    padding: 0;
+    border-radius: 0;
+  }
 
   // 禁用默认的 hover 效果
   &:not(.with-hover) {
@@ -195,6 +266,39 @@ onUnmounted(() => {
 
 .ml-2 {
   margin-left: 8px;
+}
+
+.only-icon {
+  &.el-button {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    :deep(.el-icon) {
+      font-size: 18px;
+    }
+  }
 }
 
 .el-button {

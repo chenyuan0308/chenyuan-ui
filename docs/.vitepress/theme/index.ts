@@ -19,6 +19,10 @@ import ButtonHover from '../components/button/hover.vue'
 import ButtonDisabled from '../components/button/disabled.vue'
 import ButtonWithIcon from '../components/button/with-icon.vue'
 import ButtonLoading from '../components/button/loading.vue'
+import ButtonPermission from '../components/button/permission.vue'
+import ButtonIconSlot from '../components/button/icon-slot.vue'
+import ButtonCustomStyle from '../components/button/custom-style.vue'
+import ButtonGlobalEnter from '../components/button/global-enter.vue'
 import AnchorNav from '../components/anchor-nav.vue'
 import PointCloudBasic from '../components/pointCloud/basic.vue'
 import PointCloudColor from '../components/pointCloud/differentColor.vue'
@@ -79,6 +83,10 @@ export default {
     app.component('ButtonDisabled', ButtonDisabled)
     app.component('ButtonWithIcon', ButtonWithIcon)
     app.component('ButtonLoading', ButtonLoading)
+    app.component('ButtonPermission', ButtonPermission)
+    app.component('ButtonIconSlot', ButtonIconSlot)
+    app.component('ButtonCustomStyle', ButtonCustomStyle)
+    app.component('ButtonGlobalEnter', ButtonGlobalEnter)
     app.component('PointCloudBasic', PointCloudBasic)
     app.component('PointCloudColor', PointCloudColor)
     app.component('PointCloudAnimation', PointCloudAnimation)
